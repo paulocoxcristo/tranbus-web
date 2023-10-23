@@ -58,6 +58,10 @@ public class ManageTourGroupBean {
 		this.selectedCountry = country;
 	}
 
+	public TourGroupDTO getSelectedTourGroup() {
+		return selectedTourGroup;
+	}
+
 	public void saveTourGroup() {
 		if(this.selectedTourGroup.getIdGroup() == null) {
 			this.selectedTourGroup.setIdGroup(UUID.randomUUID().toString().replaceAll("-", "").substring(0, 9));

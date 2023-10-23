@@ -7,16 +7,16 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
-public class DriverBean {
+public class RegularDvrBean{
 	private int idDvr;	// pk
 	private String dni;
-	private String nameDvr;
+	private String nameDvr; 
 	private String addressDvr;
 	private String phoneDvr;
 	private String district; // join district
-	private String typeDvr;
 
-	public DriverBean() {
+	public RegularDvrBean(){
+		
 	}
 
 	public int getIdDvr() {
@@ -67,20 +67,14 @@ public class DriverBean {
 		this.district = district;
 	}
 
-	public String getTypeDvr() {
-		return typeDvr;
-	}
 
-	public void setTypeDvr(String typeDvr) {
-		this.typeDvr = typeDvr;
-	}
 
 	protected HttpServletRequest getRequest() {
-		return (HttpServletRequest) getFacesContext().getExternalContext().getRequest();
+	    return (HttpServletRequest) getFacesContext().getExternalContext().getRequest();
 	}
-
+	
 	protected FacesContext getFacesContext() {
-		return FacesContext.getCurrentInstance();
+	    return FacesContext.getCurrentInstance();
 	}
-
+	
 }

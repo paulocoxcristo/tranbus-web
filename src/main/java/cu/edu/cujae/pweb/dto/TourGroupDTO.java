@@ -7,7 +7,7 @@ public class TourGroupDTO {
 	private boolean newRecord;
 	
 	public TourGroupDTO() {
-		super();
+		idGroup=null;
 	}
 	
 	public TourGroupDTO(String idGroup, int pax, CountryDTO country, boolean newRecord) {

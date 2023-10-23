@@ -1,14 +1,14 @@
 package cu.edu.cujae.pweb.dto;
 
 public class BrandDTO {
-	private int id;
+	private String idBrand;
 	private String brand;
 	private int numbSeats;
 	private String fuelType;
 	private int literKm;
 
-	public BrandDTO(int id) {
-		setId(id);
+	public BrandDTO(String idBrand) {
+		setIdBrand(idBrand);
 		this.brand = null;
 		this.numbSeats = -1;
 		this.fuelType = null;
@@ -16,19 +16,23 @@ public class BrandDTO {
 	}
 	
 	public BrandDTO(String brand, int numbSeats, String fuelType, int literKm) {
-		id = -1;
+		this.idBrand = null;
 		setBrand(brand);
 		setNumbSeats(numbSeats);
 		setFuelType(fuelType);
 		setLiterKm(literKm);
 	}
 	
-	public BrandDTO(int id, String brand, int numbSeats, String fuelType, int literKm) {
-		setId(id);
+	public BrandDTO(String idBrand, String brand, int numbSeats, String fuelType, int literKm) {
+		setIdBrand(idBrand);
 		setBrand(brand);
 		setNumbSeats(numbSeats);
 		setFuelType(fuelType);
 		setLiterKm(literKm);
+	}
+
+	public BrandDTO() {
+		super();
 	}
 
 	public void setLiterKm(int literKm) {
@@ -47,12 +51,12 @@ public class BrandDTO {
 		this.brand = brand;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdBrand(String idBrand) {
+		this.idBrand = idBrand;
 	}
 
-	public int getId() {
-		return this.id;
+	public String getIdBrand() {
+		return this.idBrand;
 	}
 
 	public String getBrand() {

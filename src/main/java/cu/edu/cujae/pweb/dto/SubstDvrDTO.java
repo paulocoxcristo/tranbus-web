@@ -1,18 +1,18 @@
 package cu.edu.cujae.pweb.dto;
 
 public class SubstDvrDTO extends DriverDTO{
-	private int idBrand;
+	private BrandDTO brand;
 	
-	public SubstDvrDTO(String dni, String nameDvr, String addressDvr, String phoneDvr, int idDistrict, String typeDvr, int idBrand) {
-		super(dni, nameDvr, addressDvr, phoneDvr, idDistrict, typeDvr);
-		setIdBrand(idBrand);
+	public SubstDvrDTO(String dni, String nameDvr, String addressDvr, String phoneDvr, DistrictDTO district, String typeDvr, boolean newRecord, int idBrand) {
+		super(dni, nameDvr, addressDvr, phoneDvr, district, typeDvr, newRecord);
+		setBrand(brand);
 	}
 
-	public void setIdBrand(int idBrand) {
-		this.idBrand = idBrand;
+	public void setBrand(BrandDTO brand) {
+		this.brand = brand;
 	}
 	
-	public int getIdBrand() {
-		return this.idBrand;
+	public BrandDTO getBrand() {
+		return this.brand;
 	}
 }

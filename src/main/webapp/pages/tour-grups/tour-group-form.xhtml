@@ -5,18 +5,15 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<p:dialog header="Nuevo Grupo de Tour" showEffect="fade"
-		modal="true" widgetVar="manageUserDialog" responsive="true">
-		<p:outputPanel id="manage-user-content" class="ui-fluid">
+		modal="true" widgetVar="manageTourDialog" responsive="true">
+		<p:outputPanel id="manage-tour-content" class="ui-fluid">
 			<p:outputPanel >
 				<p:panelGrid layout="grid" columns="2">
-					<h:panelGroup>
-						<div class="p-field"></div>
-						
-						
+					<h:panelGroup>				
 						<div class="p-field">
 							<p:outputLabel for="@next">Cantidad de personas</p:outputLabel>
 							<p:inputText id="paxInput" required="true"
-								value="#{ManageTourGroupBean.selectedTourGroup.pax}">
+								value="#{manageTourGroupBean.selectedTourGroup.pax}">
 								<p:keyFilter mask="num" />
 							</p:inputText>
 							<p:message for="@previous"></p:message>
@@ -43,9 +40,9 @@
 		<f:facet name="footer">
 			<p:commandButton value="Salvar" icon="pi pi-check"
 				actionListener="#{manageTourGroupBean.saveTourGroup}"
-				update="manage-user-content" process="manage-user-content @this" />
+				update="manage-tour-content" process="manage-tour-content @this" />
 			<p:commandButton value="Cancelar" icon="pi pi-times"
-				onclick="PF('manageUserDialog').hide()" class="ui-button-secondary" />
+				onclick="PF('manageTourDialog').hide()" class="ui-button-secondary" />
 		</f:facet>
 	</p:dialog>
 </ui:composition>

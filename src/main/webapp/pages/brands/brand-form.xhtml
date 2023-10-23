@@ -5,21 +5,21 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<p:dialog header="Nueva marca de vehículo" showEffect="fade" modal="true"
-		widgetVar="manageUserDialog" responsive="true">
-		<p:outputPanel id="manage-user-content" class="ui-fluid">
-			<p:outputPanel rendered="#{not empty manageUserBean.selectedUser}">
+		widgetVar="manageBrandDialog" responsive="true">
+		<p:outputPanel id="manage-brand-content" class="ui-fluid">
+			<p:outputPanel >
 				<p:panelGrid layout="grid" columns="2">
 					<h:panelGroup>
 						<div class="p-field">
 							<p:outputLabel for="@next">Nombre de marca</p:outputLabel>
 							<p:inputText id="nameBrandInput" required="true"
-								value="#{manageUserBean.selectedUser.fullName}" maxlength="7" />
+								value="#{manageBrandBean.selectedBrand.brand}" maxlength="20" />
 							<p:message for="@previous"></p:message>
 						</div>
 						<div class="p-field">
 							<p:outputLabel for="@next">Cantidad de asientos</p:outputLabel>
 							<p:inputText id="seatInput" required="true"
-								value="#{manageUserBean.selectedUser.identification}"
+								value="#{manageBrandBean.selectedBrand.numbSeats}"
 								maxlength="3">
 								<p:keyFilter mask="num" />
 							</p:inputText>
@@ -28,7 +28,7 @@
 						<div class="p-field">
 							<p:outputLabel for="@next">Km por litro de combustible</p:outputLabel>
 							<p:inputText id="fuelKmInput" required="true"
-								value="#{manageUserBean.selectedUser.email}" maxlength="4">
+								value="#{manageBrandBean.selectedBrand.literKm}" maxlength="4">
 								<p:keyFilter mask="num" />
 							</p:inputText>
 							
@@ -39,12 +39,12 @@
 						<div class="p-field">
 							<p:outputLabel for="@next">Tipo de combustible</p:outputLabel>
 							<p:selectOneMenu id="fuelTypeSelected" required="true"
-								value="#{manageUserBean.selectedRoles}" label="Seleccione"
+								value="#{manageBrandBean.fuels}" label="Seleccione"
 								style="min-width: 15rem" multiple="true" filter="true"
 								filterMatchMode="startsWith" panelStyle="width: 30rem"
 								scrollHeight="250">
-								<f:selectItems value="#{manageUserBean.roles}" var="role"
-									itemLabel="#{role.description}" itemValue="#{role.id}" />
+								<f:selectItems value="#{manageBrandBean.fuels}" var="fuel"
+									itemLabel="#{fuel}" itemValue="#{fuel}" />
 							</p:selectOneMenu>
 						</div>
 					</h:panelGroup>
@@ -54,10 +54,10 @@
 
 		<f:facet name="footer">
 			<p:commandButton value="Salvar" icon="pi pi-check"
-				actionListener="#{manageUserBean.saveUser}"
-				update="manage-user-content" process="manage-user-content @this" />
+				actionListener="#{manageBrandBean.saveUser}"
+				update="manage-brand-content" process="manage-brand-content @this" />
 			<p:commandButton value="Cancelar" icon="pi pi-times"
-				onclick="PF('manageUserDialog').hide()" class="ui-button-secondary" />
+				onclick="PF('manageBrandDialog').hide()" class="ui-button-secondary" />
 		</f:facet>
 	</p:dialog>
 </ui:composition>

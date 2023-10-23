@@ -5,21 +5,21 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<p:dialog header="Nuevo vehículo" showEffect="fade" modal="true"
-		widgetVar="manageUserDialog" responsive="true">
-		<p:outputPanel id="manage-user-content" class="ui-fluid">
-			<p:outputPanel rendered="#{not empty manageUserBean.selectedUser}">
+		widgetVar="manageCarDialog" responsive="true">
+		<p:outputPanel id="manage-car-content" class="ui-fluid">
+			<p:outputPanel >
 				<p:panelGrid layout="grid" columns="2">
 					<h:panelGroup>
 						<div class="p-field">
 							<p:outputLabel for="@next">Placa</p:outputLabel>
 							<p:inputText id="plateInput" required="true"
-								value="#{manageUserBean.selectedUser.fullName}" maxlength="7" />
+								value="#{manageCarBean.selectedCarDTO.carPlate}" maxlength="7" />
 							<p:message for="@previous"></p:message>
 						</div>
 						<div class="p-field">
 							<p:outputLabel for="@next">Número de carro</p:outputLabel>
 							<p:inputText id="numberInput" required="true"
-								value="#{manageUserBean.selectedUser.identification}"
+								value="#{manageCarBean.selectedCarDTO.carNumber}"
 								maxlength="5">
 								<p:keyFilter mask="num" />
 							</p:inputText>
@@ -28,7 +28,7 @@
 						<div class="p-field">
 							<p:outputLabel for="@next">Número de flotilla</p:outputLabel>
 							<p:inputText id="floatInput" required="true"
-								value="#{manageUserBean.selectedUser.email}" maxlength="3">
+								value="#{manageCarBean.selectedCarDTO.fleetNumber}" maxlength="3">
 								<p:keyFilter mask="num" />
 							</p:inputText>
 							
@@ -39,12 +39,12 @@
 						<div class="p-field">
 							<p:outputLabel for="@next">Marca</p:outputLabel>
 							<p:selectOneMenu id="brandSelected" required="true"
-								value="#{manageUserBean.selectedRoles}" label="Seleccione"
+								value="#{manageCarBean.selectedBrands}" label="Seleccione"
 								style="min-width: 15rem" multiple="true" filter="true"
 								filterMatchMode="startsWith" panelStyle="width: 30rem"
 								scrollHeight="250">
-								<f:selectItems value="#{manageUserBean.roles}" var="role"
-									itemLabel="#{role.description}" itemValue="#{role.id}" />
+								<f:selectItems value="#{manageCarBean.brands}" var="brand"
+									itemLabel="#{brand.brand}" itemValue="#{brand.idBrand}" />
 							</p:selectOneMenu>
 						</div>
 					</h:panelGroup>
@@ -54,10 +54,10 @@
 
 		<f:facet name="footer">
 			<p:commandButton value="Salvar" icon="pi pi-check"
-				actionListener="#{manageUserBean.saveUser}"
-				update="manage-user-content" process="manage-user-content @this" />
+				actionListener="#{manageCarBean.saveCar}"
+				update="manage-car-content" process="manage-car-content @this" />
 			<p:commandButton value="Cancelar" icon="pi pi-times"
-				onclick="PF('manageUserDialog').hide()" class="ui-button-secondary" />
+				onclick="PF('manageCarDialog').hide()" class="ui-button-secondary" />
 		</f:facet>
 	</p:dialog>
 </ui:composition>

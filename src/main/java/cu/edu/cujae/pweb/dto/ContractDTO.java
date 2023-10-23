@@ -3,66 +3,81 @@ package cu.edu.cujae.pweb.dto;
 import java.sql.Date;
 
 public class ContractDTO {
-	private int idContract;
+	private String idContract;
 	private String applicantName;
 	private Date startDate;
 	private Date endingDate;
-	private int idCountry;
+	private CountryDTO country;
+	private boolean newRecord;
+	
+	public ContractDTO() {
+		
+	}
 
-	public ContractDTO(int idContract, String applicantName, Date startDate, Date endingDate, int idCountry) {
+	public ContractDTO(String idContract, String applicantName, Date startDate, Date endingDate, CountryDTO country, boolean newRecord) {
 		setIdContract(idContract);
 		setApplicantName(applicantName);
 		setStartDate(startDate);
 		setEndingDate(endingDate);
-		setIdCountry(idCountry);
+		setCountry(country);
+		setNewRecord(newRecord);		
 	}
-	
+	// sin id
 	public ContractDTO(String applicantName, Date startDate, Date endingDate, int idCountry) {
-		idContract = -1;
+		idContract = null;
 		setApplicantName(applicantName);
 		setStartDate(startDate);
 		setEndingDate(endingDate);
-		setIdCountry(idCountry);
+		setCountry(country);
 	}
-	
-	public void setIdContract(int idContract) {
+
+	public String getIdContract() {
+		return idContract;
+	}
+
+	public void setIdContract(String idContract) {
 		this.idContract = idContract;
-	}
-	
-	public void setApplicantName(String applicantName) {
-		this.applicantName = applicantName;
-	}
-	
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	
-	public void setEndingDate(Date endingDate) {
-		this.endingDate = endingDate;
-	}
-	
-	public void setIdCountry(int idCountry) {
-		this.idCountry = idCountry;
-	}
-	
-	public int getIdContract() {
-		return this.idContract;
 	}
 
 	public String getApplicantName() {
-		return this.applicantName;
+		return applicantName;
+	}
+
+	public void setApplicantName(String applicantName) {
+		this.applicantName = applicantName;
 	}
 
 	public Date getStartDate() {
-		return this.startDate;
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 
 	public Date getEndingDate() {
-		return this.endingDate;
+		return endingDate;
 	}
 
-	public int getIdCountry() {
-		return this.idCountry;
+	public void setEndingDate(Date endingDate) {
+		this.endingDate = endingDate;
 	}
+
+	public CountryDTO getCountry() {
+		return country;
+	}
+
+	public void setCountry(CountryDTO country) {
+		this.country = country;
+	}
+
+	public boolean isNewRecord() {
+		return newRecord;
+	}
+
+	public void setNewRecord(boolean newRecord) {
+		this.newRecord = newRecord;
+	}
+	
 
 }

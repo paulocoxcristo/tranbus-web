@@ -5,23 +5,27 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<p:dialog header="Nuevo contrato" showEffect="fade" modal="true"
-		widgetVar="manageUserDialog" responsive="true">
-		<p:outputPanel id="manage-user-content" class="ui-fluid">
-			<p:outputPanel rendered="#{not empty manageUserBean.selectedUser}">
+		widgetVar="manageContractDialog" responsive="true">
+		<p:outputPanel id="manage-contract-content" class="ui-fluid">
+			<p:outputPanel >
 				<p:panelGrid layout="grid" columns="2">
 					<h:panelGroup>
 						<div class="p-field">
 							<p:outputLabel for="@next">Nombre del aplicante</p:outputLabel>
 							<p:inputText id="nameContractInput" required="true"
-								value="#{manageUserBean.selectedUser.fullName}" />
+								value="#{manageContractBean.selectedContract.applicantName}" maxlength="20"/>
 							<p:message for="@previous"></p:message>
 						</div>
 						<div class="p-field">
-							<p:outputLabel for="@next">Pais de origen</p:outputLabel>
-							<p:inputText id="countryInput" required="true"
-								value="#{manageUserBean.selectedUser.identification}">
-							</p:inputText>
-							<p:message for="@previous"></p:message>
+							<p:outputLabel for="@next">País</p:outputLabel>
+							<p:selectOneMenu id="countrySelected" required="true"
+								value="#{manageContractBean.selectedCountry}"
+								label="País" style="min-width: 15rem"
+								filter="true" filterMatchMode="startsWith"
+								panelStyle="width: 30rem" scrollHeight="250">
+								<f:selectItems value="#{manageContractBean.countries}" var="countryItem"
+									itemLabel="#{countryItem.country}" itemValue="#{countryItem.idCountry}" />
+							</p:selectOneMenu>
 						</div>
 
 						<p:message for="@previous"></p:message>
@@ -31,14 +35,14 @@
 						<div class="p-field">
 							<p:outputLabel for="@next">Fecha de inicio</p:outputLabel>
 							<p:calendar id="startDateInput" required="true"
-								value="#{manageUserBean.selectedRoles}" pattern="dd/MM/yyyy"
+								value="#{manageContractBean.contractDTO.startDate}" pattern="dd/MM/yyyy"
 								showOn="button">
 							</p:calendar>
 						</div>
 						<div class="p-field">
 							<p:outputLabel for="@next">Fecha de fin</p:outputLabel>
 							<p:calendar id="endingDateInput" required="true"
-								value="#{manageUserBean.selectedRoles}" pattern="dd/MM/yyyy"
+								value="#{manageContractBean.contractDTO.endingDate}" pattern="dd/MM/yyyy"
 								showOn="button">
 							</p:calendar>
 						</div>
@@ -49,10 +53,10 @@
 
 		<f:facet name="footer">
 			<p:commandButton value="Salvar" icon="pi pi-check"
-				actionListener="#{manageUserBean.saveUser}"
-				update="manage-user-content" process="manage-user-content @this" />
+				actionListener="#{manageContractBean.saveUser}"
+				update="manage-contract-content" process="manage-contract-content @this" />
 			<p:commandButton value="Cancelar" icon="pi pi-times"
-				onclick="PF('manageUserDialog').hide()" class="ui-button-secondary" />
+				onclick="PF('manageContractDialog').hide()" class="ui-button-secondary" />
 		</f:facet>
 	</p:dialog>
 </ui:composition>

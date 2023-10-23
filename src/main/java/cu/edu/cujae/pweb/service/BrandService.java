@@ -1,16 +1,18 @@
 package cu.edu.cujae.pweb.service;
 
-import java.sql.ResultSet;
+import java.util.List;
 
 import cu.edu.cujae.pweb.dto.BrandDTO;
 
 
-public class BrandService {
+public interface BrandService {
 
-	public BrandService() {
-	}
-
-	
+	List<BrandDTO> getBrands();	
+	List<String> getFuels();
+	BrandDTO getBrandById(String brandId);
+	void createBrand(BrandDTO brand);
+	void updateBrand(BrandDTO brand);
+	void deleteBrand(String idBrand);
 
 }
 

@@ -4,22 +4,26 @@ public class CarDTO {
 	private String carPlate;
 	private String carNumber;
 	private int fleetNumber;
-	private int idBrand;
+	private BrandDTO brand;
 	
 	public CarDTO(String carPlate) {
 		setCarPlate(carPlate);
 		this.carNumber = null;
 		this.fleetNumber = -1;
-		this.idBrand = -1;
+		this.brand = null;
 	}
 	
-	public CarDTO(String carPlate,String carNumber, int fleetNumber, int idBrand ) {
+	public CarDTO(String carPlate,String carNumber, int fleetNumber, BrandDTO brand ) {
 		setCarPlate(carPlate);
 		setCarNumber(carNumber);
 		setFleetNumber(fleetNumber);
-		setIdBramd(idBrand);
+		setBrand(brand);
 	}
 	
+	public CarDTO() {
+		super();
+	}
+
 	public void setCarPlate(String carPlate) {
 		this.carPlate = carPlate;
 	}
@@ -32,8 +36,8 @@ public class CarDTO {
 		this.fleetNumber = fleetNumber;
 	}
 	
-	public void setIdBramd(int idBrand) {
-		this.idBrand = idBrand;
+	public void setBrand(BrandDTO brand) {
+		this.brand = brand;
 	}
 	
 	public String getCarPlate() {
@@ -48,7 +52,7 @@ public class CarDTO {
 		return this.fleetNumber;
 	}
 	
-	public int getIdBrand() {
-		return this.idBrand;
+	public BrandDTO getBrand() {
+		return this.brand;
 	}
 }
