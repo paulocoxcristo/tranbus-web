@@ -1,12 +1,17 @@
 package cu.edu.cujae.pweb.dto;
 
-public abstract class DriverDTO {
+public class DriverDTO {
 	private String dni;
 	private String nameDvr;
 	private String addressDvr;
 	private String phoneDvr;
-	private int idDistrict;
+	private DistrictDTO district;
 	private String typeDvr;
+	private boolean newRecord;
+	
+	public DriverDTO() {
+		
+	}
 	
 	public DriverDTO(String dni){
 		setDni(dni);
@@ -14,16 +19,17 @@ public abstract class DriverDTO {
 		this.nameDvr = null;
 		this.addressDvr = null;
 		this.phoneDvr = null;
-		this.idDistrict = -1;
+		this.district = null;
 		this.typeDvr = null;	
 	}
-	public DriverDTO(String dni, String nameDvr, String addressDvr, String phoneDvr, int idDistrict, String typeDvr) {
+	public DriverDTO(String dni, String nameDvr, String addressDvr, String phoneDvr, DistrictDTO district, String typeDvr, boolean newRecord) {
 		setDni(dni);
 		setNameDvr(nameDvr);
 		setAddressDvr(addressDvr);
 		setPhoneDvr(phoneDvr);
-		setIdDistrict(idDistrict);
+		setDistrict(district);
 		setTypeDvr(typeDvr);
+		setNewRecord(newRecord);
 	}
 	
 	public void setDni(String dni) {
@@ -42,8 +48,8 @@ public abstract class DriverDTO {
 		this.phoneDvr = phoneDvr;
 	}
 	
-	public void setIdDistrict(int idDistrict) {
-		this.idDistrict = idDistrict;
+	public void setDistrict(DistrictDTO district) {
+		this.district = district;
 	}
 	
 	public void setTypeDvr(String typeDvr) {
@@ -66,11 +72,19 @@ public abstract class DriverDTO {
 		return this.phoneDvr;
 	}
 	
-	public int getIdDistrict() {
-		return this.idDistrict;
+	public DistrictDTO getDistrict() {
+		return this.district;
 	}
 	
 	public String getTypeDvr() {
 		return this.typeDvr;
+	}
+	
+	public boolean isNewRecord() {
+		return newRecord;
+	}
+	
+	public void setNewRecord(boolean newRecord) {
+		this.newRecord = newRecord;
 	}
 }

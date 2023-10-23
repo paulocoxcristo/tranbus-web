@@ -1,15 +1,15 @@
 package cu.edu.cujae.pweb.dto;
 
 public class DistrictDTO {
-	private int idDistrict;
+	private String idDistrict;
 	private String district;
 	
-	public DistrictDTO(int idDistrict, String district) {
+	public DistrictDTO(String idDistrict, String district) {
 		setIdDistrict(idDistrict);
 		setdistrict(district);
 	}
 	
-	public void setIdDistrict(int idDistrict) {
+	public void setIdDistrict(String idDistrict) {
 		this.idDistrict = idDistrict;
 	}
 	
@@ -17,7 +17,7 @@ public class DistrictDTO {
 		this.district = district;
 	}
 	
-	public int getIdDistrict() {
+	public String getIdDistrict() {
 		return this.idDistrict;
 	}
 	
